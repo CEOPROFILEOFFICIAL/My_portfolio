@@ -4,21 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chaudhary Muhammad Ahmad — Software Engineering Student</title>
-  <meta name="description" content="Portfolio of Chaudhary Muhammad Ahmad — software engineering student focused on systems programming and cybersecurity. C, C++, Java, Python." />
+  <meta name="description" content="Portfolio of Chaudhary Muhammad Ahmad — software engineering student focused on systems programming and cybersecurity." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .skeleton { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); min-height: 120px; }
+    .skeleton::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.06) 50%, transparent 70%); animation: shimmer 1.4s infinite; }
+    @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+    .content-error { color: var(--muted); font-size: .9rem; padding: 18px; border: 1px dashed var(--border); border-radius: var(--radius); text-align: center; }
+    .project-img { width: 100%; height: 170px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+  </style>
 </head>
 <body>
-  <!-- Preloader -->
   <div id="preloader" aria-hidden="true">
     <div class="loader-terminal">
       <span class="loader-prompt">$</span><span id="loader-text"></span><span class="loader-caret"></span>
     </div>
   </div>
 
-  <!-- Navbar -->
   <header id="navbar">
     <nav class="nav-inner">
       <a href="#home" class="logo">CMA<span class="logo-dot">.</span></a>
@@ -37,7 +42,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-bg" aria-hidden="true">
         <div class="orb orb-1"></div>
@@ -45,19 +49,19 @@
         <div class="grid-overlay"></div>
       </div>
       <div class="container hero-inner">
-        <p class="hero-badge reveal"><span class="pulse-dot"></span> Open to internships &amp; collaborations</p>
-        <h1 class="hero-title reveal">Chaudhary Muhammad <span class="gradient-text">Ahmad</span></h1>
+        <p class="hero-badge reveal"><span class="pulse-dot"></span> <span id="hero-badge">Loading…</span></p>
+        <h1 class="hero-title reveal"><span id="hero-title">Chaudhary Muhammad</span> <span class="gradient-text" id="hero-title-accent">Ahmad</span></h1>
         <p class="hero-subtitle reveal"><span class="mono">&gt;_</span> <span id="typed"></span><span class="typed-caret"></span></p>
-        <p class="hero-bio reveal">Software engineering student building secure, efficient software from the ground up — from low-level C to full-stack web apps.</p>
+        <p class="hero-bio reveal" id="hero-bio"></p>
         <div class="hero-actions reveal">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
         <div class="hero-socials reveal">
-          <a href="https://github.com/CEOPROFILEOFFICIAL" target="_blank" rel="noopener" aria-label="GitHub">
+          <a id="social-github" href="https://github.com/CEOPROFILEOFFICIAL" target="_blank" rel="noopener" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           </a>
-          <a href="mailto:muhammadahmad.93152@gmail.com" aria-label="Email">
+          <a id="social-email" href="mailto:muhammadahmad.93152@gmail.com" aria-label="Email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
           </a>
         </div>
@@ -65,7 +69,6 @@
       <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
     </section>
 
-    <!-- About -->
     <section id="about" class="section">
       <div class="container">
         <p class="section-kicker reveal">About me</p>
@@ -74,118 +77,46 @@
           <div class="about-card reveal">
             <div class="monogram" aria-hidden="true">CA</div>
             <div class="about-facts">
-              <div class="fact"><span class="fact-label">Degree</span><span class="fact-value">BS Computer Science</span></div>
-              <div class="fact"><span class="fact-label">University</span><span class="fact-value">COMSATS University Islamabad, Abbottabad Campus</span></div>
-              <div class="fact"><span class="fact-label">Focus</span><span class="fact-value">Systems Programming &amp; Cybersecurity</span></div>
-              <div class="fact"><span class="fact-label">Location</span><span class="fact-value">Pakistan</span></div>
+              <div class="fact"><span class="fact-label">Degree</span><span class="fact-value" id="fact-degree">—</span></div>
+              <div class="fact"><span class="fact-label">University</span><span class="fact-value" id="fact-university">—</span></div>
+              <div class="fact"><span class="fact-label">Focus</span><span class="fact-value" id="fact-focus">—</span></div>
+              <div class="fact"><span class="fact-label">Location</span><span class="fact-value" id="fact-location">—</span></div>
             </div>
           </div>
           <div class="about-text reveal">
-            <p>I'm a software engineering student who likes understanding how things work <em>underneath</em> — memory, processes, networks — and then building on top of that foundation.</p>
-            <p>My core languages are <strong>C, C++, Java and Python</strong>. Alongside my degree I'm exploring cybersecurity and shipping real projects: from C programs to database-backed web apps deployed on Vercel.</p>
+            <p id="about-p1"></p>
+            <p id="about-p2"></p>
             <div class="counters">
-              <div class="counter"><span class="counter-num" data-target="4">0</span><span class="counter-label">Languages</span></div>
-              <div class="counter"><span class="counter-num" data-target="3">0</span><span class="counter-label">Projects shipped</span></div>
-              <div class="counter"><span class="counter-num" data-target="2">0</span><span class="counter-label">Focus areas</span></div>
+              <div class="counter"><span class="counter-num" id="count-skills" data-target="0">0</span><span class="counter-label">Skills</span></div>
+              <div class="counter"><span class="counter-num" id="count-projects" data-target="0">0</span><span class="counter-label">Projects</span></div>
+              <div class="counter"><span class="counter-num" id="count-tools" data-target="0">0</span><span class="counter-label">Tools</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="section section-alt">
       <div class="container">
         <p class="section-kicker reveal">Skills</p>
         <h2 class="section-title reveal">What I <span class="gradient-text">work with</span></h2>
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">C</span><span class="skill-pct">90%</span></div>
-            <div class="skill-bar"><span style="--w:90%"></span></div>
-            <p class="skill-desc">Pointers, memory management, data structures</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">C++</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><span style="--w:85%"></span></div>
-            <p class="skill-desc">OOP, STL, systems-level programs</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">Java</span><span class="skill-pct">80%</span></div>
-            <div class="skill-bar"><span style="--w:80%"></span></div>
-            <p class="skill-desc">OOP design, application development</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">Python</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><span style="--w:85%"></span></div>
-            <p class="skill-desc">Scripting, automation, backend logic</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">Systems Programming</span><span class="skill-pct">75%</span></div>
-            <div class="skill-bar"><span style="--w:75%"></span></div>
-            <p class="skill-desc">Low-level concepts, Linux, processes</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-head"><span class="skill-name">Cybersecurity</span><span class="skill-pct">70%</span></div>
-            <div class="skill-bar"><span style="--w:70%"></span></div>
-            <p class="skill-desc">Security fundamentals, secure coding</p>
-          </div>
+        <div class="skills-grid" id="skills-grid">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
         </div>
-        <div class="tools-row reveal">
-          <span class="tool-chip">Git &amp; GitHub</span>
-          <span class="tool-chip">Linux</span>
-          <span class="tool-chip">Supabase</span>
-          <span class="tool-chip">Vercel</span>
-          <span class="tool-chip">HTML &amp; CSS</span>
-          <span class="tool-chip">JavaScript</span>
-          <span class="tool-chip">SQL</span>
-        </div>
+        <div class="tools-row reveal" id="tools-row"></div>
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section">
       <div class="container">
         <p class="section-kicker reveal">Projects</p>
         <h2 class="section-title reveal">Things I've <span class="gradient-text">built</span></h2>
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-lang">C</span>
-              <a href="https://github.com/CEOPROFILEOFFICIAL/c_language" target="_blank" rel="noopener" class="project-link" aria-label="Open c_language on GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-              </a>
-            </div>
-            <h3>c_language</h3>
-            <p>A collection of C programs exploring core concepts — pointers, memory management, data structures and algorithms, written from scratch.</p>
-            <div class="project-tags"><span>C</span><span>Algorithms</span><span>Data Structures</span></div>
-          </article>
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-lang">Java</span>
-              <a href="https://github.com/CEOPROFILEOFFICIAL/School-Management-System" target="_blank" rel="noopener" class="project-link" aria-label="Open School-Management-System on GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-              </a>
-            </div>
-            <h3>School Management System</h3>
-            <p>A management system for handling school records — students, classes and day-to-day administration, built with object-oriented design.</p>
-            <div class="project-tags"><span>Java</span><span>OOP</span></div>
-          </article>
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-lang">Web</span>
-              <a href="#contact" class="project-link" aria-label="Get in touch about the next project">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </div>
-            <h3>This portfolio</h3>
-            <p>Designed and built by hand — HTML, CSS and JavaScript, deployed on Vercel, with a contact form backed by Supabase.</p>
-            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span><span>Supabase</span></div>
-          </article>
+        <div class="projects-grid" id="projects-grid">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
         </div>
       </div>
     </section>
 
-    <!-- Journey -->
     <section id="journey" class="section section-alt">
       <div class="container">
         <p class="section-kicker reveal">Journey</p>
@@ -227,7 +158,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
         <p class="section-kicker reveal">Contact</p>
@@ -251,17 +181,17 @@
             <p id="cf-status" role="status" aria-live="polite"></p>
           </form>
           <div class="contact-info reveal">
-            <a class="info-card" href="mailto:muhammadahmad.93152@gmail.com">
+            <a class="info-card" id="info-email" href="mailto:muhammadahmad.93152@gmail.com">
               <span class="info-icon" aria-hidden="true">@</span>
-              <span><strong>Email</strong><span class="info-value">muhammadahmad.93152@gmail.com</span></span>
+              <span><strong>Email</strong><span class="info-value" id="contact-email">muhammadahmad.93152@gmail.com</span></span>
             </a>
-            <a class="info-card" href="https://github.com/CEOPROFILEOFFICIAL" target="_blank" rel="noopener">
+            <a class="info-card" id="info-github" href="https://github.com/CEOPROFILEOFFICIAL" target="_blank" rel="noopener">
               <span class="info-icon" aria-hidden="true">&lt;/&gt;</span>
-              <span><strong>GitHub</strong><span class="info-value">github.com/CEOPROFILEOFFICIAL</span></span>
+              <span><strong>GitHub</strong><span class="info-value" id="contact-github-label">github.com/CEOPROFILEOFFICIAL</span></span>
             </a>
             <div class="info-card">
               <span class="info-icon" aria-hidden="true">◉</span>
-              <span><strong>Location</strong><span class="info-value">Pakistan · Open to remote</span></span>
+              <span><strong>Location</strong><span class="info-value" id="contact-location">Pakistan · Open to remote</span></span>
             </div>
           </div>
         </div>
@@ -271,7 +201,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Chaudhary Muhammad Ahmad. Built by hand with HTML, CSS &amp; JavaScript.</p>
+      <p>© <span id="year"></span> <span id="footer-name">Chaudhary Muhammad Ahmad</span>. Built by hand with HTML, CSS &amp; JavaScript.</p>
       <a href="#home" class="back-top" aria-label="Back to top">↑</a>
     </div>
   </footer>
